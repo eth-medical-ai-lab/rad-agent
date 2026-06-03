@@ -1,0 +1,21 @@
+run:
+  selected_model: "qwen3-235b"
+  error_threshold: 3
+  timestamp_format: "%Y%m%d_%H%M%S"
+  batch_size: 16
+
+vllm:
+  sampling_params:
+    max_tokens: 1
+    temperature: 0.7 
+    top_p: 0.8 
+
+models:
+  qwen3-235b:
+    path: "Qwen/Qwen3-235B-A22B-Instruct-2507"
+    dtype: "bfloat16"
+    tensor_parallel_size: 4
+    gpu_memory_utilization: 0.85
+    max_model_len: 16384
+    quantization: "fp8"
+    enable_thinking: false
